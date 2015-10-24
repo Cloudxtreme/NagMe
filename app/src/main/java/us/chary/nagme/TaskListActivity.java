@@ -1,9 +1,12 @@
 package us.chary.nagme;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class TaskListActivity extends AppCompatActivity {
 
@@ -11,27 +14,15 @@ public class TaskListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
+        // retrieve tasks from database
+        TaskDBOpenHelper t = new TaskDBOpenHelper(this);
+        SQLiteDatabase d = t.getReadableDatabase();
+        String[] columns = new String[]{"rowid as _id","description", "due", "nags", "difficulty", "priority"};
+        Cursor c = d.query("tasks",columns,null,null,null,null,null);
+        // fill listview with tasks
+        ListView l = (ListView) findViewById(R.id.listView);
+        l.setAdapter(new TaskListAdapter(this,c));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_task_list, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

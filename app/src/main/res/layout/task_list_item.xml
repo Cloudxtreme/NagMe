@@ -1,0 +1,81 @@
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/task_item"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="4dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/description"
+            android:textStyle="bold"
+            android:text="Description"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/due"
+            android:layout_alignParentEnd="true"
+            android:text="Du/ed/ate."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nags"
+            android:layout_below="@+id/description"
+            android:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:layout_toEndOf="@id/nags"
+            android:text=" nags."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/priority"
+            android:layout_below="@+id/description"
+            android:layout_alignParentEnd="true"
+            android:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/priorityLabel"
+            android:layout_below="@+id/description"
+            android:layout_toStartOf="@id/priority"
+            android:text=" Priority: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/difficulty"
+            android:layout_below="@+id/description"
+            android:layout_toStartOf="@id/priorityLabel"
+            android:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/difficultyLabel"
+            android:layout_below="@+id/description"
+            android:layout_toStartOf="@id/difficulty"
+            android:text="Difficulty: "/>
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/difficulty"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description"
+            android:text="Diff: 0/10"
+            android:paddingEnd="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/priority"
+            android:layout_toEndOf="@+id/difficulty"
+            android:layout_below="@+id/description"
+            android:text="Pri: 0/10"/>-->
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
