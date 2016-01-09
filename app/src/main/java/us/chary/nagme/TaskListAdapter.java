@@ -30,6 +30,6 @@ public class TaskListAdapter extends CursorAdapter {
         return view;
     }
     public void bindView(View view, Context context, Cursor cursor) {
-
     }
+
 }
