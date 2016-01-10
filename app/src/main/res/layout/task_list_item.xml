@@ -33,34 +33,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/description"
             android:layout_toEndOf="@id/nags"
-            android:text=" nags."/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/priority"
-            android:layout_below="@+id/description"
-            android:layout_alignParentEnd="true"
-            android:text="0"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/priorityLabel"
-            android:layout_below="@+id/description"
-            android:layout_toStartOf="@id/priority"
-            android:text=" Priority: "/>
+            android:text=" nags"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/difficulty"
             android:layout_below="@+id/description"
-            android:layout_toStartOf="@id/priorityLabel"
+            android:layout_toLeftOf="@+id/difficultyLabel"
             android:text="0"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/difficultyLabel"
             android:layout_below="@+id/description"
-            android:layout_toStartOf="@id/difficulty"
-            android:text="Difficulty: "/>
+            android:layout_alignParentEnd="true"
+            android:text=" minutes"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

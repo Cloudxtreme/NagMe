@@ -22,11 +22,11 @@ public class TaskListAdapter extends CursorAdapter {
     }
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         View view = inflater.inflate(R.layout.task_list_item,parent,false);
+        view.setId(cursor.getInt(cursor.getColumnIndex("_id")));
         ((TextView) view.findViewById(R.id.description)).setText(cursor.getString(cursor.getColumnIndex("description")));
         ((TextView) view.findViewById(R.id.due)).setText(String.valueOf(cursor.getInt(cursor.getColumnIndex("due"))));
         ((TextView) view.findViewById(R.id.nags)).setText(String.valueOf(cursor.getInt(cursor.getColumnIndex("nags"))));
         ((TextView) view.findViewById(R.id.difficulty)).setText(String.valueOf(cursor.getInt(cursor.getColumnIndex("difficulty"))));
-        ((TextView) view.findViewById(R.id.priority)).setText(String.valueOf(cursor.getInt(cursor.getColumnIndex("priority"))));
         return view;
     }
     public void bindView(View view, Context context, Cursor cursor) {

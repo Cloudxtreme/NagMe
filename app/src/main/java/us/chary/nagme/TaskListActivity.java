@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 
@@ -23,17 +24,26 @@ public class TaskListActivity extends Activity {
         // retrieve tasks from database
         TaskDBOpenHelper t = new TaskDBOpenHelper(this);
         SQLiteDatabase d = t.getReadableDatabase();
-        String[] columns = new String[]{"rowid as _id","description", "due", "nags", "difficulty", "priority"};
+        String[] columns = new String[]{"rowid as _id","description", "due", "nags", "difficulty"};
         Cursor c = d.query("tasks", columns, null, null, null, null, null);
         // fill listview with tasks
         ListView l = (ListView) findViewById(R.id.listView);
         l.setAdapter(new TaskListAdapter(this,c));
         findViewById(R.id.add).setOnClickListener(addClickListener);
+        ((ListView) findViewById(R.id.listView)).setOnItemClickListener(editClickListener);
     }
 
     View.OnClickListener addClickListener = new View.OnClickListener() {
         public void onClick(View v){
             Intent i = new Intent(getApplicationContext(), NewTaskActivity.class);
+            startActivity(i);
+        }
+    };
+
+    ListView.OnItemClickListener editClickListener = new ListView.OnItemClickListener() {
+        public void onItemClick(AdapterView a, View v, int x, long y){
+            Intent i = new Intent(getApplicationContext(), EditTaskActivity.class);
+            i.putExtra("taskId",v.getId());
             startActivity(i);
         }
     };
