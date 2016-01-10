@@ -15,10 +15,9 @@ public class TaskDBOpenHelper extends SQLiteOpenHelper {
                     "created INTEGER," +
                     "nags INTEGER," +
                     "difficulty INTEGER," +
-                    "priority INTEGER" +
                 ");";
     private static final String INSERT_SAMPLE_STATEMENT =
-            "INSERT INTO tasks (description, due, created, nags, difficulty, priority) VALUES ('Sample Text',0,0,0,0,0)";
+            "INSERT INTO tasks (description, due, created, nags, difficulty) VALUES ('Sample Text',0,0,0,0)";
     TaskDBOpenHelper(Context context){
         super(context,"tasks",null,1);
     }
